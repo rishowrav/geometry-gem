@@ -1,28 +1,39 @@
+function getValueById(idName) {
+  const idValue = parseFloat(document.getElementById(idName).value);
+  return idValue;
+}
+function setValueById(idName, setValue) {
+  const id = document.getElementById(idName);
+  id.innerText = setValue;
+}
+
 function calTriangle() {
   // base
-  const triangleBase = document.getElementById("triangle-base");
-  const triangleBaseValue = parseFloat(triangleBase.value);
+  const triangleBase = getValueById("triangle-base");
   // height
-  const triangleHeight = document.getElementById("triangle-height");
-  const triangleHeightValue = parseFloat(triangleHeight.value);
-
+  const triangleHeight = getValueById("triangle-height");
   // calculate triangle
-  const triangleArea = 0.5 * triangleBaseValue * triangleHeightValue;
-
+  const triangleArea = 0.5 * triangleBase * triangleHeight;
   // display triangle area
-  const triangleAreaDisplay = document.getElementById("triangle-area");
-  triangleAreaDisplay.innerText = triangleArea;
+  setValueById("triangle-area", triangleArea);
 }
 
 function calRectangle() {
   // width
-  const rectangleWidth = document.getElementById("rectangle-width").value;
+  const rectangleWidth = getValueById("rectangle-width");
   // length
-  const rectangleLength = document.getElementById("rectangle-length").value;
+  const rectangleLength = getValueById("rectangle-length");
   // calculate rectangle
   const rectangleArea =
     parseFloat(rectangleWidth) * parseFloat(rectangleLength);
   // display rectangle area
-  const rectangleAreaDisplay = document.getElementById("rectangle-display");
-  rectangleAreaDisplay.innerText = rectangleArea;
+  setValueById("rectangle-display", rectangleArea);
 }
+
+function calParallelogram() {
+  const parallelogramBase = getValueById("parallelogram-base");
+  const parallelogramHeight = getValueById("parallelogram-height");
+  const parallelogramArea = parallelogramBase * parallelogramHeight;
+  setValueById("parallelogram-display", parallelogramArea);
+}
+// Experiment
